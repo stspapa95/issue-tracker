@@ -5,6 +5,8 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 
 import { timeAgo } from "../../../../../utils/utils";
+import { useUserData } from "../../../../../hooks/hooks";
+
 import { IssueProps } from "../model";
 import { Status } from "../constants";
 
@@ -24,13 +26,20 @@ function Issue({ issue }: IssueComponentProps) {
     assignee,
   } = issue;
 
+  //Manual Parallel Queries
+  const assigneeData = useUserData(`${assignee}`);
+  const createdByData = useUserData(`${createdBy}`);
+
   return (
     <Box
       display={"flex"}
       alignItems={"center"}
       py={2}
       px={2}
-      style={{ borderRadius: 4, border: `1px solid rgba(255,255,255,.25)` }}
+      style={{
+        borderRadius: 4,
+        border: `1px solid rgba(255,255,255,.25)`,
+      }}
       gap={3}
     >
       <InfoOutlinedIcon
@@ -49,17 +58,21 @@ function Issue({ issue }: IssueComponentProps) {
           >
             {title}
           </Typography>
+
           {labels.map((label, index) => (
             <Chip
               key={index}
               label={label}
               variant={"outlined"}
-              sx={{ color: "#fff" }}
+              color={"error"}
             />
           ))}
         </Box>
+
         <Typography style={{ fontSize: 12, color: "#aaa" }}>
-          {`#${number} opened ${timeAgo(createdDate)} by ${createdBy}`}
+          {`#${number} opened ${timeAgo(createdDate)} by ${
+            createdByData.isSuccess ? createdByData.data?.name : ""
+          }`}
         </Typography>
       </Stack>
 
@@ -70,16 +83,18 @@ function Issue({ issue }: IssueComponentProps) {
         ml={"auto"}
         justifyContent={"center"}
       >
-        {assignee && (
+        {assigneeData.data?.profilePictureUrl && (
           <Avatar
-            alt={`assignee-avatar`}
-            src={""}
+            alt={`Issue assigned to ${assigneeData.data.name}`}
+            src={assigneeData.data?.profilePictureUrl}
             sx={{ width: 28, height: 28, marginRight: 1 }}
           />
         )}
+
         <ChatBubbleOutlineOutlinedIcon
           style={{ color: "#aaa", fontSize: 20 }}
         />
+
         {comments.length > 0 && (
           <Typography style={{ fontSize: 14, color: "#aaa" }}>
             {comments.length}

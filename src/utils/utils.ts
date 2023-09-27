@@ -18,3 +18,5 @@ export function timeAgo(date: Date) {
       Math.floor(diffMinutes / 60),
     )} ago`;
 }
+
+export const fetchData = (url: string) => fetch(url).then((res) => res.json());
