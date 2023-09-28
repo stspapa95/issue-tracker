@@ -1,11 +1,19 @@
 import React from "react";
 import { Stack } from "@mui/material";
-import IssuesPanel from "./IssuesPanel";
+
+import SearchField from "./SearchField";
+import IssuesList from "./IssuesList";
+import Labels from "./Labels";
 
 function MainView() {
   return (
     <Stack direction={"row"} spacing={8}>
-      <IssuesPanel />
+      <Stack spacing={3}>
+        <SearchField />
+        <IssuesList />
+      </Stack>
+
+      <Labels />
     </Stack>
   );
 }

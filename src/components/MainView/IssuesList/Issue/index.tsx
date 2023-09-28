@@ -4,8 +4,8 @@ import { Avatar, Box, Chip, Stack, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 
-import { timeAgo } from "../../../../../utils/utils";
-import { useUserData } from "../../../../../hooks/hooks";
+import { timeAgo } from "../../../../utils/utils";
+import { useUserData } from "../../../../hooks/hooks";
 
 import { IssueProps } from "../model";
 import { Status } from "../constants";

@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import Issue from "./Issue";
 
-import { fetchData } from "../../../../utils/utils";
+import { fetchData } from "../../../utils/utils";
 import { IssueProps } from "./model";
 
 function IssuesList() {
@@ -15,7 +15,7 @@ function IssuesList() {
 
   return (
     <Stack spacing={2}>
-      <Typography style={{ fontSize: 28, color: "#fff" }}>
+      <Typography style={{ fontSize: 28, color: "#fff", fontWeight: "bold" }}>
         {"Issues List"}
       </Typography>
 
