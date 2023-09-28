@@ -13,7 +13,7 @@ function MainView() {
         <IssuesList />
       </Stack>
 
-      <Labels />
+      {/*<Labels />*/}
     </Stack>
   );
 }

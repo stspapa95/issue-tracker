@@ -7,20 +7,21 @@ import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutline
 import { timeAgo } from "../../../../utils/utils";
 import { useUserData } from "../../../../hooks/hooks";
 
-import { IssueProps } from "../model";
+import { IssueProps, LabelsProps } from "../model";
 import { Status } from "../constants";
 
 type IssueComponentProps = {
   issue: IssueProps;
+  totalLabels: LabelsProps[];
 };
 
-function Issue({ issue }: IssueComponentProps) {
+function Issue({ issue, totalLabels }: IssueComponentProps) {
   const {
     title,
     number,
     comments,
-    labels,
     status,
+    labels,
     createdDate,
     createdBy,
     assignee,
@@ -29,6 +30,10 @@ function Issue({ issue }: IssueComponentProps) {
   //Manual Parallel Queries
   const assigneeData = useUserData(`${assignee}`);
   const createdByData = useUserData(`${createdBy}`);
+
+  const formattedLabels = labels.flatMap((label) =>
+      totalLabels.filter((el) => el.id === label),
+  );
 
   return (
     <Box
@@ -59,12 +64,16 @@ function Issue({ issue }: IssueComponentProps) {
             {title}
           </Typography>
 
-          {labels.map((label, index) => (
+          {formattedLabels.map((label, index) => (
             <Chip
               key={index}
-              label={label}
+              label={label?.name}
               variant={"outlined"}
-              color={"error"}
+              sx={{
+                border: `1px solid ${label?.color}`,
+                color: label?.color,
+              }}
+              onClick={() => {}}
             />
           ))}
         </Box>
