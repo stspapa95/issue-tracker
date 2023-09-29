@@ -9,14 +9,9 @@ import { fetchData } from "../../../utils/utils";
 import { IssueProps } from "./model";
 
 function IssuesList() {
-  const fetchAll = Promise.all([
+  const { data, isLoading } = useQuery<IssueProps[]>(["issues"], () =>
     fetchData(`/api/issues`),
-    fetchData(`api/labels`),
-  ]);
-  const { data, isLoading } = useQuery(["issues"], () => fetchAll);
-
-  // @ts-ignore
-  const [issues, labels] = data ?? [];
+  );
 
   return (
     <Stack spacing={2}>
@@ -25,9 +20,9 @@ function IssuesList() {
       </Typography>
 
       {isLoading && <CircularProgress sx={{ color: "#fff" }} size={24} />}
-      {issues &&
-        issues.map((issue: IssueProps, idx: number) => (
-          <Issue key={idx} issue={issue} totalLabels={labels} />
+      {data &&
+        data.map((issue, idx) => (
+          <Issue key={idx} issue={issue} />
         ))}
     </Stack>
   );
