@@ -9,6 +9,7 @@ import { useUserData } from "../../../../hooks/hooks";
 
 import { IssueProps } from "../model";
 import { Status } from "../constants";
+import Label from "./Label";
 
 type IssueComponentProps = {
   issue: IssueProps;
@@ -60,15 +61,7 @@ function Issue({ issue }: IssueComponentProps) {
           </Typography>
 
           {labels.map((label, index) => (
-            <Chip
-              key={index}
-              label={label}
-              variant={"outlined"}
-              sx={{
-                color: "#fff"
-              }}
-              onClick={() => {}}
-            />
+            <Label label={label} key={index} />
           ))}
         </Box>
 

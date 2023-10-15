@@ -1,0 +1,111 @@
+.red {
+    background-color: rgba(255, 0, 0, 0.2) !important;
+    color: red !important;
+    border: 1px solid red !important;
+}
+
+.redSelected {
+    background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+.red:hover {
+    background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+.blue {
+    background-color: rgba(0, 0, 255, 0.1) !important;
+    color: rgb(0, 120, 255) !important;
+    border: 1px solid blue !important;
+}
+
+.blueSelected {
+    background-color: rgba(0, 0, 255, 0.5) !important;
+}
+
+.blue:hover {
+    background-color: rgba(0, 0, 255, 0.5) !important;
+}
+
+.cyan {
+    background-color: rgba(0, 255, 255, 0.2) !important;
+    color: cyan !important;
+    border: 1px solid cyan !important;
+}
+
+.cyanSelected {
+    background-color: rgba(0, 255, 255, 0.5) !important;
+}
+
+.cyan:hover {
+    background-color: rgba(0, 255, 255, 0.5) !important;
+}
+
+.orange {
+    background-color: rgba(255, 165, 0, 0.2) !important;
+    color: orange !important;
+    border: 1px solid orange !important;
+}
+
+.orangeSelected {
+    background-color: rgba(255, 165, 0, 0.5) !important;
+}
+
+.orange:hover {
+    background-color: rgba(255, 165, 0, 0.5) !important;
+}
+
+.lime {
+    background-color: rgba(0, 255, 0, 0.2) !important;
+    color: lime !important;
+    border: 1px solid lime !important;
+}
+
+.limeSelected {
+    background-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+.lime:hover {
+    background-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+.white {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.whiteSelected {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.white:hover {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.rebeccapurple {
+    background-color: rgba(102, 51, 153, 0.2) !important;
+    color: rebeccapurple !important;
+    border: 1px solid rebeccapurple !important;
+}
+
+.rebeccapurpleSelected {
+    background-color: rgba(102, 51, 153, 0.5) !important;
+}
+
+.rebeccapurple:hover {
+    background-color: rgba(102, 51, 153, 0.5) !important;
+}
+
+.yellow {
+    background-color: rgba(255, 255, 0, 0.2) !important;
+    color: yellow !important;
+    border: 1px solid yellow !important;
+}
+
+.yellowSelected {
+    background-color: rgba(255, 255, 0, 0.5) !important;
+}
+
+.yellow:hover {
+    background-color: rgba(255, 255, 0, 0.5) !important;
+}

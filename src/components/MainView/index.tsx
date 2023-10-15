@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack } from "@mui/material";
 
 import SearchField from "./SearchField";
 import IssuesList from "./IssuesList";
-import Labels from "./Labels";
+import Labels from "./Labels/index";
 
 function MainView() {
+  const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
+
   return (
     <Stack direction={"row"} spacing={8}>
       <Stack spacing={3}>
         <SearchField />
-        <IssuesList />
+        <IssuesList selectedLabels={selectedLabels} />
       </Stack>
 
-      {/*<Labels />*/}
+      <Labels
+        setSelectedLabels={setSelectedLabels}
+        selectedLabels={selectedLabels}
+      />
     </Stack>
   );
 }
