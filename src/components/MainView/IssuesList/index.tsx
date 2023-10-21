@@ -9,14 +9,14 @@ import { fetchData } from "../../../utils/utils";
 import { IssueProps } from "./model";
 
 function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
-  const queryParams =
+  const labelsParams =
     selectedLabels.length > 0
       ? selectedLabels.map((label) => `labels[]=${label}`).join("&")
       : "";
 
   const { data, isLoading } = useQuery<IssueProps[]>(
-    ["issues", queryParams],
-    () => fetchData(`/api/issues?${queryParams}`),
+    ["issues", { selectedLabels }],
+    () => fetchData(`/api/issues?${labelsParams}`),
   );
 
   return (

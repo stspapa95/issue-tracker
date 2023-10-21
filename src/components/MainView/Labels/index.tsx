@@ -4,25 +4,19 @@ import { Chip } from "@mui/material";
 
 import { useLabelsData } from "../../../hooks/hooks";
 
-import {calculateStyles, calculateSelectedStyles} from "./calculateStyles";
+import { calculateStyles, calculateSelectedStyles } from "./calculateStyles";
 import clsx from "clsx";
 
 function Labels({
   setSelectedLabels,
   selectedLabels,
+  handleSelectedLabelIds,
 }: {
   selectedLabels: string[];
   setSelectedLabels: Dispatch<SetStateAction<string[]>>;
+  handleSelectedLabelIds: (label: string) => void;
 }) {
   const { data } = useLabelsData();
-
-  const handleSelectedLabelIds = (label: string) => {
-    if (selectedLabels.includes(label)) {
-      setSelectedLabels([...selectedLabels.filter((el) => el !== label)]);
-    } else {
-      setSelectedLabels([...selectedLabels, label]);
-    }
-  };
 
   return (
     <Stack direction={"column"} spacing={2}>
