@@ -4,11 +4,9 @@ import { Stack } from "@mui/material";
 import SearchField from "./SearchField";
 import IssuesList from "./IssuesList";
 import Labels from "./Labels/index";
-import Status from "./Status";
 
 function MainView() {
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
-  const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
   const handleSelectedLabelIds = (label: string) => {
     if (selectedLabels.includes(label)) {
       setSelectedLabels([...selectedLabels.filter((el) => el !== label)]);
@@ -30,8 +28,6 @@ function MainView() {
           selectedLabels={selectedLabels}
           handleSelectedLabelIds={handleSelectedLabelIds}
         />
-
-        {/*<Status />*/}
       </Stack>
     </Stack>
   );
