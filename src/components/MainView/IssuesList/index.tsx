@@ -17,7 +17,7 @@ function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
   const { data, isLoading } = useQuery<IssueProps[]>(
     ["issues", { selectedLabels }],
     () => fetchData(`/api/issues?${labelsParams}`),
-    { refetchOnWindowFocus: false, staleTime: 1000 * 60 },
+    { refetchOnWindowFocus: false },
   );
 
   return (
