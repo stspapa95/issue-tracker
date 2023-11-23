@@ -24,7 +24,6 @@ function MainView() {
 
       <Stack spacing={6} width={"calc(100% - 650px)"}>
         <Labels
-          setSelectedLabels={setSelectedLabels}
           selectedLabels={selectedLabels}
           handleSelectedLabelIds={handleSelectedLabelIds}
         />

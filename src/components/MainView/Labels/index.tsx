@@ -1,19 +1,17 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
+import { useLabelsData } from "../../../hooks/hooks";
+
 import { Box, Stack, Typography } from "@mui/material";
 import { Chip } from "@mui/material";
-
-import { useLabelsData } from "../../../hooks/hooks";
 
 import { calculateStyles, calculateSelectedStyles } from "./calculateStyles";
 import clsx from "clsx";
 
 function Labels({
-  setSelectedLabels,
   selectedLabels,
   handleSelectedLabelIds,
 }: {
   selectedLabels: string[];
-  setSelectedLabels: Dispatch<SetStateAction<string[]>>;
   handleSelectedLabelIds: (label: string) => void;
 }) {
   const { data } = useLabelsData();
