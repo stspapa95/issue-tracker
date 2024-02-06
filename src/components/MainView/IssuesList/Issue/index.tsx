@@ -1,15 +1,19 @@
 import React from "react";
-import { Avatar, Box, Chip, Stack, Typography } from "@mui/material";
-
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 
 import { timeAgo } from "../../../../utils/utils";
 import { useUserData } from "../../../../hooks/hooks";
 
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import Label from "./Label";
+
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+
 import { IssueProps } from "../model";
 import { Status } from "../constants";
-import Label from "./Label";
 
 type IssueComponentProps = {
   issue: IssueProps;

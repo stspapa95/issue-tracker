@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Stack } from "@mui/material";
+import Stack from "@mui/material/Stack";
 
-import SearchField from "./SearchField";
 import IssuesList from "./IssuesList";
 import Labels from "./Labels/index";
 
@@ -18,7 +17,6 @@ function MainView() {
   return (
     <Stack direction={"row"} spacing={8}>
       <Stack spacing={3}>
-        <SearchField />
         <IssuesList selectedLabels={selectedLabels} />
       </Stack>
 

@@ -1,11 +1,14 @@
 import React from "react";
-
-import { Stack, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../../../utils/utils";
+
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import { BeatLoader } from "react-spinners";
 
 import Issue from "./Issue";
 
-import { fetchData } from "../../../utils/utils";
 import { IssueProps } from "./model";
 
 function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
@@ -13,6 +16,8 @@ function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
     selectedLabels.length > 0
       ? selectedLabels.map((label) => `labels[]=${label}`).join("&")
       : "";
+
+  console.log(labelsParams);
 
   const { data, isLoading } = useQuery<IssueProps[]>(
     ["issues", { selectedLabels }],
@@ -22,15 +27,13 @@ function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
 
   return (
     <Stack spacing={2} width={650}>
-      <Typography style={{ fontSize: 20, color: "#fff", fontWeight: "bold" }}>
-        {"Issues List"}
-      </Typography>
-
-      {isLoading && (
-        <Typography style={{ fontSize: 16, color: "#fff" }}>
-          Loading...
+      <Box display={"flex"} alignItems={"center"} columnGap={2}>
+        <Typography style={{ fontSize: 20, color: "#fff", fontWeight: "bold" }}>
+          {"Issues List"}
         </Typography>
-      )}
+        {isLoading && <BeatLoader color={"#FFF"} size={10} />}
+      </Box>
+
       {data && data.map((issue, idx) => <Issue key={idx} issue={issue} />)}
     </Stack>
   );
