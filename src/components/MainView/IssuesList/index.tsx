@@ -26,7 +26,14 @@ function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
   return (
     <Stack spacing={2} width={650}>
       <Box display={"flex"} alignItems={"center"} columnGap={2}>
-        <Typography style={{ fontSize: 20, color: "#fff", fontWeight: "bold" }}>
+        <Typography
+          style={{
+            fontSize: 20,
+            color: "#fff",
+            fontWeight: "bold",
+            fontFamily: "Protest Revolution",
+          }}
+        >
           {"Issues List"}
         </Typography>
         {isLoading && <BeatLoader color={"#FFF"} size={10} />}

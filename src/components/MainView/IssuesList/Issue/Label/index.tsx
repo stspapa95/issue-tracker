@@ -20,6 +20,9 @@ function Label({ label }: { label: string }) {
           sx={{
             border: `1px solid ${foundLabel.color}`,
             color: foundLabel.color,
+            "& .MuiChip-label": {
+              fontFamily: "Protest Revolution",
+            },
           }}
         />
       )}

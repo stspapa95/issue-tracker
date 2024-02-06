@@ -18,13 +18,25 @@ function Labels({
 
   return (
     <Stack direction={"column"} spacing={2}>
-      <Typography style={{ fontSize: 20, color: "#fff", fontWeight: "bold" }}>
+      <Typography
+        style={{
+          fontSize: 20,
+          color: "#fff",
+          fontWeight: "bold",
+          fontFamily: "Protest Revolution",
+        }}
+      >
         {"Labels"}
       </Typography>
       <Box display={"flex"} flexWrap={"wrap"} gap={1}>
         {data &&
           data.map((label: any, idx: number) => (
             <Chip
+              sx={{
+                "& .MuiChip-label": {
+                  fontFamily: "Protest Revolution",
+                },
+              }}
               className={clsx(
                 calculateStyles(label.id),
                 selectedLabels.includes(label.id) &&

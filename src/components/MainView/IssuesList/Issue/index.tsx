@@ -60,7 +60,12 @@ function Issue({ issue }: IssueComponentProps) {
       <Stack spacing={1}>
         <Box display={"flex"} alignItems={"center"} gap={2}>
           <Typography
-            style={{ fontSize: 18, color: "yellow", fontWeight: "bold" }}
+            style={{
+              fontSize: 18,
+              color: "yellow",
+              fontWeight: "bold",
+              fontFamily: "Protest Revolution",
+            }}
           >
             {title}
           </Typography>
@@ -70,7 +75,13 @@ function Issue({ issue }: IssueComponentProps) {
           ))}
         </Box>
 
-        <Typography style={{ fontSize: 12, color: "#aaa" }}>
+        <Typography
+          style={{
+            fontSize: 12,
+            color: "#aaa",
+            fontFamily: "Protest Revolution",
+          }}
+        >
           {`#${number} opened ${timeAgo(createdDate)} by ${
             createdByData.isSuccess ? createdByData.data?.name : ""
           }`}
@@ -97,7 +108,13 @@ function Issue({ issue }: IssueComponentProps) {
         />
 
         {comments.length > 0 && (
-          <Typography style={{ fontSize: 14, color: "#aaa" }}>
+          <Typography
+            style={{
+              fontSize: 14,
+              color: "#aaa",
+              fontFamily: "Protest Revolution",
+            }}
+          >
             {comments.length}
           </Typography>
         )}
