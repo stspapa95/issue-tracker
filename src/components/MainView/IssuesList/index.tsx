@@ -17,8 +17,6 @@ function IssuesList({ selectedLabels }: { selectedLabels: string[] }) {
       ? selectedLabels.map((label) => `labels[]=${label}`).join("&")
       : "";
 
-  console.log(labelsParams);
-
   const { data, isLoading } = useQuery<IssueProps[]>(
     ["issues", { selectedLabels }],
     () => fetchData(`/api/issues?${labelsParams}`),
